@@ -44,7 +44,7 @@ export function getDecks() {
 }
 
 //Obter um deck em específico
-export function GetDeck(title) {
+export function getDeck(title) {
     return getDecks()
         .then((deck) => deck[title])
 }
