@@ -1,6 +1,6 @@
-# Leitura
+# Flashcards
 
-> Leitura: uma aplicação mobile que possibilita ao usuário criar novos estudar uma coleção de flashcards, permitindo criar diferentes categorias de flashcards chamadas de decks (baralhos) adicionar flashcards a esses decks e fazer os quizes nestes baralhos. wº Projeto do Nanodegree em React, promovido pela Udacity.
+> Flashcards: uma aplicação mobile que possibilita ao usuário criar novos estudar uma coleção de flashcards, permitindo criar diferentes categorias de flashcards chamadas de decks (baralhos) adicionar flashcards a esses decks e fazer os quizes nestes baralhos. wº Projeto do Nanodegree em React, promovido pela Udacity.
 
 A aplicação consiste na criação de baralhos e flashcards de acordo com o desejo do usuário.
 
