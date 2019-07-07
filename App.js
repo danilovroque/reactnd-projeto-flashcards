@@ -1,19 +1,41 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { Constants } from 'expo'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import reducer from './reducers'
+import ReduxThunk from 'redux-thunk'
+import { setLocalNotification } from './utils/notifications'
+import { blueDark } from './utils/colors'
+import MainNavigator from './components/MainNavigation'
 
-export default function App() {
+function AppStatusBar ({backgroundColor, ...props}) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const store = createStore(reducer, {}, applyMiddleware(ReduxThunk));
+
+class App extends Component {
+
+  componentDidMount() {
+    setLocalNotification()
+  }
+
+  render() {
+    console.log('teste')
+    return (
+      <Provider store={store}>
+        <View style={{flex: 1}}>
+          <AppStatusBar backgroundColor={blueDark} />
+          <MainNavigator />
+        </View>
+      </Provider>
+    )
+  }
+}
+
+export default App
