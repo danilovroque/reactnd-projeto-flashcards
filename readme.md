@@ -12,8 +12,8 @@ A aplicação foi testada com iOS, utilizando expo.
 
 ## Instalação
 
-* Clonar o projeto: `git clone https://github.com/danilovroque/reactnd-project-myreads.git`
-* Instale as dependências: `npm install`
+* Clonar o projeto: `git clone https://github.com/danilovroque/reactnd-projeto-flashcards.git`
+* Instale as dependências: `yarn install`
 * Inicie a aplicação: `yarn start`
 
 ## License
