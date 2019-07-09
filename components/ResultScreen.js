@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { 
     View, 
-    Text } from 'react-native'
+    Text,
+    Button } from 'react-native'
 import { setLocalNotification, clearLocalNotification, NOTIFICATION_KEY } from '../utils/notifications'
 
 class ResultScreen extends Component {
