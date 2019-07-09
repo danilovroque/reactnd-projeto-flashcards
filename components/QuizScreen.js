@@ -9,21 +9,12 @@ import { Notifications } from 'expo'
 import { NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux'
 import { gray, blueDark, blueLight } from '../utils/colors'
-import { setLocalNotification, clearLocalNotification, NOTIFICATION_KEY } from '../utils/notifications'
 import Button from './Button'
+import ResultScreen from './ResultScreen'
 
 const NoCards = () => (
     <View style={styles.noCards}>
         <Text style={styles.noCardsText}>Esse deck não possui cards.</Text>
-    </View>
-)
-
-const ResultScreen = (props) => (
-    <View style={styles.resultCard}>
-        <Text style={styles.resultCardText}>Total de perguntas respondidas: {props.totalAnswered}</Text>
-        <Text style={styles.resultCardText}>Respostas corretas: {props.correct}</Text>
-        <Button text='Restart' func={props.restart} />
-        <Button text='Voltar' func={props.goBack} />
     </View>
 )
 
@@ -63,7 +54,10 @@ class QuizScreen extends Component {
     if(this.state.currentQuestion === this.props.cards.length -1) {
       this.setState({ showResults: true });
     } else {
-      this.setState({ currentQuestion: this.state.currentQuestion + 1 });
+      this.setState({ 
+        currentQuestion: this.state.currentQuestion + 1,
+        show: 'question'
+      });
     }
   }
 
@@ -74,9 +68,6 @@ class QuizScreen extends Component {
       show: 'question',
       showResults: false
     });
-
-    clearLocalNotification()
-      .then(setLocalNotification)   
   }
 
   goBack = () => {
@@ -95,6 +86,7 @@ class QuizScreen extends Component {
           correct={this.state.correctAnswers}
           restart={this.restartQuiz}
           goBack={this.goBack}
+          styles={styles}
         />
       );
     }

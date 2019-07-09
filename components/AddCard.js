@@ -19,7 +19,7 @@ class AddCard extends Component {
     createCard = () => {
         const { question, answer } = this.state
 
-        if (question.length > 6 && answer.length > 1) {
+        if (question.trim().length > 6 && answer.trim().length > 1) {
             const cardObj = {
                 question,
                 answer

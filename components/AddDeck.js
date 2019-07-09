@@ -17,7 +17,7 @@ class AddDeck extends Component {
     createNewDeck = () => {
         const { title } = this.state
 
-        if (title.length > 3) {
+        if (title.trim().length > 3) {
             saveDeck(title)
             const deckObj = {
                 [title]: {
